@@ -1,1 +1,1 @@
-worker: python bot.py
+worker: python parsing_zorg.py
