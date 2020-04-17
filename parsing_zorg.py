@@ -6,7 +6,7 @@ import pastebin
 TOKEN = "Njk4MDg2ODcxMDI4NDY1Njk1.XpmrRQ."
 TOKEN2 = "j6kzBOwG8CsrlHUe9p9oCKSt8Jw"
 TOKEN = TOKEN + TOKEN2
-# Назаров_лох
+# Назаров_лох вдвойне
 
 t = []
 client = discord.Client()
