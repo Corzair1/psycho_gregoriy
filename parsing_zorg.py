@@ -1,17 +1,16 @@
 import requests
-import time
 import discord
-import sys
 from pyaspeller import YandexSpeller
 
 t = []
 client = discord.Client()
 
-TOKEN = "Njk4MDg2ODcxMDI4NDY1Njk1.Xpb8eQ.mYiG4F_JBgvp-nw3e4-P2ogl89I"
+TOKEN = open("token", "r").read()
 
 
 def is_me(m):
     return m.author == client.user
+
 
 def translate(text):
     url = 'https://translate.yandex.net/api/v1.5/tr.json/translate?'
@@ -23,8 +22,9 @@ def translate(text):
     r = r.replace('"]}', "")
     return r
 
+
 def spel(text):
-    speller = YandexSpeller(lang="ru",ignore_urls= True,
+    speller = YandexSpeller(lang="ru", ignore_urls=True,
                             ignore_tags=True,
                             ignore_capitalization=True,
                             ignore_digits=True,
@@ -42,11 +42,9 @@ def spel(text):
         return text
 
 
-
 @client.event
 async def on_message(message):
     channel = message.channel
-
 
     if message.content.startswith('вспышка'):
         deleted = await channel.purge(limit=1000, check=is_me)
@@ -302,6 +300,4 @@ async def on_ready():
             await x.delete()
 
 
-
 client.run(TOKEN)
-
